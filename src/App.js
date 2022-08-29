@@ -61,7 +61,7 @@ function App() {
         console.log('reg ',reg)
       });
 
-      return () => listener.removeEventListener();
+      // return () => listener.removeEventListener();
     } else {
       //do nothing because no sw in development
     }
