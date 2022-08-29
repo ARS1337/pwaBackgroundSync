@@ -58,6 +58,7 @@ function App() {
       navigator.serviceWorker.getRegistration().then((reg) => {
         listener.addRegistration(reg);
         setRegistration(reg);
+        console.log('reg ',reg)
       });
 
       return () => listener.removeEventListener();
@@ -82,9 +83,11 @@ function App() {
     swListener.skipWaiting(registration.waiting);
    }
 
+
   return (
     <div className="App">
       <div>
+
         numbers : {numbers.length > 0 && numbers.map((number, index) => {
             if (index < numbers.length - 1) {
               return <React.Fragment key={index}>{number}, </React.Fragment>;
