@@ -58,6 +58,7 @@ function App() {
       navigator.serviceWorker.getRegistration().then((reg) => {
         listener.addRegistration(reg);
         setRegistration(reg);
+        console.log('reg ',reg)
       });
 
       return () => listener.removeEventListener();
@@ -82,8 +83,16 @@ function App() {
     swListener.skipWaiting(registration.waiting);
    }
 
+   const handleInstall = () =>{
+    swListener.customInstall(registration.active)
+   }
+
   return (
     <div className="App">
+      <div>
+        install the app for better experience 
+      <button onClick={handleInstall}>install</button>
+      </div>
       <div>
         numbers : {numbers.length > 0 && numbers.map((number, index) => {
             if (index < numbers.length - 1) {
